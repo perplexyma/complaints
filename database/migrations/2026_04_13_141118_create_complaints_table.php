@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('image');
             $table->text('feedback');
             $table->enum('status', ['pending', 'approved', 'rejected'])->default('pending');
+            $table->integer('score')->default(0);
             $table->timestamps();
         });
     }

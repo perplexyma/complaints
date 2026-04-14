@@ -3,6 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use App\Models\Student;
+use App\Models\Category;
 
 class Complaint extends Model
 {
@@ -14,6 +17,17 @@ class Complaint extends Model
         'content',
         'image',
         'feedback',
-        'status'
+        'status',
+        'score'
     ];
+
+    public function category(): BelongsTo
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function student(): BelongsTo
+    {
+        return $this->belongsTo(Student::class);
+    }
 }
